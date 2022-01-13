@@ -69,6 +69,12 @@ namespace FIFAvilagranglista
             if (van) Console.WriteLine("6. feladat: A csapatok között van Magyarország");
             else Console.WriteLine("6. feladat: A csapatok között nincs Magyarország");
             
+            //7
+            Console.WriteLine("7. feladat: Statisztika");
+            adatok.GroupBy(x => x.Valtozas)
+                .Where(x => x.Count() > 1)
+                .ToList().ForEach(x => Console.WriteLine("\t{0} helyet változott: {1} csapat", x.Key, x.Count()));
+
 
             Console.ReadKey();
 
